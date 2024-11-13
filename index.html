@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Speed Dial</title>
+</head>
+<body>
+
+<h1>Speed Dial</h1>
+
+<input type="text" id="siteName" placeholder="Website Name">
+<input type="text" id="siteURL" placeholder="Website URL">
+<button onclick="addWebsite()">Add</button>
+
+<div id="buttonContainer"></div>
+
+<script>
+    function addWebsite() {
+        const name = document.getElementById('siteName').value;
+        const url = document.getElementById('siteURL').value;
+
+        if (name && url) {
+            const button = document.createElement('button');
+            button.textContent = name;
+            button.onclick = function() {
+                window.open(url, '_blank');
+            };
+            document.getElementById('buttonContainer').appendChild(button);
+
+            document.getElementById('siteName').value = '';
+            document.getElementById('siteURL').value = '';
+        }
+    }
+</script>
+
+</body>
+</html>
